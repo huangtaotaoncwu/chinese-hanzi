@@ -12,7 +12,7 @@ st.markdown(
     .block-container { animation: stPageFadeIn 0.2s ease-out; }
     @keyframes stPageFadeIn { from { opacity: 0; } to { opacity: 1; } }
     footer { visibility: hidden; }
-    [data-testid="stSidebarNav"] span { font-weight: 500; }
+    [data-testid="stSidebarNav"] span { font-weight: 500; font-size: 1.125rem !important; }
     [data-testid="stSidebarNav"] li { padding: 8px 0; }
 </style>
 """,

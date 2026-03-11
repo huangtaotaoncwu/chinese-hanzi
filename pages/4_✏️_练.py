@@ -18,7 +18,7 @@ st.markdown(
     @keyframes stPageFadeIn { from { opacity: 0; } to { opacity: 1; } }
     .block-container { padding-top: 0.35rem; padding-bottom: 0; max-width: 100%; }
     footer { visibility: hidden; }
-    [data-testid="stSidebarNav"] span { font-weight: 500; }
+    [data-testid="stSidebarNav"] span { font-weight: 500; font-size: 1.125rem !important; }
     [data-testid="stSidebarNav"] li { padding: 8px 0; }
 </style>
 """,

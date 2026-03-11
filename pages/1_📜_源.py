@@ -1,5 +1,4 @@
 import streamlit as st
-from pathlib import Path
 
 st.set_page_config(page_title="汉字起源", page_icon="📜", layout="wide")
 
@@ -14,7 +13,7 @@ st.markdown(
     @keyframes stPageFadeIn { from { opacity: 0; } to { opacity: 1; } }
     .block-container { padding-top: 0.5rem; padding-bottom: 0; max-width: 100%; }
     footer { visibility: hidden; }
-    [data-testid="stSidebarNav"] span { font-weight: 500; }
+    [data-testid="stSidebarNav"] span { font-weight: 500; font-size: 1.125rem !important; }
     [data-testid="stSidebarNav"] li { padding: 8px 0; }
 </style>
 """,
@@ -23,9 +22,8 @@ st.markdown(
 
 # 侧栏由入口 汉字乐园.py 统一绘制，本页不再输出侧栏，避免切换时侧栏刷新
 
-_bgm_path = Path(__file__).resolve().parent.parent / "static" / "music_bg.mp3"
-if not _bgm_path.exists():
-    st.warning("未找到 `static/music_bg.mp3`，请将音乐文件放到该路径。")
+# 背景音乐：仅使用 OSS 地址（若为签名 URL 过期后可在此替换）
+BGM_OSS_URL = "https://sanctions.oss-cn-shanghai.aliyuncs.com/music_bg.mp3?OSSAccessKeyId=LTAI4Fh6KKLt4QuqBgdv8DKk&Expires=1804746853&Signature=Q1iQLne8%2BrmDX%2F0TEM9kmXQTz1g%3D"
 
 # 整个页面作为一个大型 HTML 组件
 import streamlit.components.v1 as components
@@ -636,9 +634,9 @@ body {
 
 </div>
 
-<!-- 背景音乐：进入页面默认尝试播放，若被浏览器拦截可点击右侧 🎵 开启 -->
+<!-- 背景音乐：进入页面默认尝试播放，若被浏览器拦截可点击右侧 🎵 开启（使用 OSS URL） -->
 <audio id="bgm" loop preload="auto" autoplay style="display:none;">
-    <source src="/app/static/music_bg.mp3" type="audio/mpeg">
+    <source src="__BGM_OSS_URL__" type="audio/mpeg">
 </audio>
 <script>
 (function () {
@@ -664,5 +662,8 @@ body {
 </body>
 </html>
 """
+
+# 注入背景音乐 OSS URL
+html_content = html_content.replace("__BGM_OSS_URL__", BGM_OSS_URL)
 
 components.html(html_content, height=4200, scrolling=True)
