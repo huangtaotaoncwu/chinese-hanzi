@@ -1,0 +1,15 @@
+[project]
+name = "chinese-hanzi"
+version = "0.1.0"
+description = "汉字乐园，一个专为小学生设计的汉字、拼音学习工具，提供汉字的笔画、拼音等信息，帮助孩子们更好地学习和理解汉字。"
+requires-python = ">=3.13"
+dependencies = [
+    "pydub>=0.25.1",
+    "streamlit>=1.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstall>=0.1.4",
+    "pyinstaller>=6.19.0",
+]
