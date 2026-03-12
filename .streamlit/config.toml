@@ -1,0 +1,18 @@
+# 应用根路径为 /。子页（如 /源）下会先请求 /源/_stcore/health 得 404 再请求 /_stcore/health 得 200，属 Streamlit 多页已知行为，可忽略 404。
+[server]
+baseUrlPath = ""
+enableStaticServing = true
+
+# 统一背景色，减轻左侧菜单切换页面时的白屏闪烁
+# baseFontSize 从首帧即生效，避免左侧菜单在刷新瞬间先小后大的闪烁
+[theme]
+baseFontSize = 18
+backgroundColor = "#f0f2f6"
+secondaryBackgroundColor = "#ffffff"
+
+# 侧栏字体与主主题一致，避免切换页面时侧栏字体瞬间变小
+[theme.sidebar]
+headingFontSizes = ["1.25rem", "1.125rem", "1rem", "1rem", "0.9375rem", "0.875rem"]
+
+[client]
+toolbarMode = "minimal"
